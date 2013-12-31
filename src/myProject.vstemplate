@@ -12,12 +12,16 @@
   </TemplateData>
   <TemplateContent>
     <ProjectCollection>
-      <ProjectTemplateLink ProjectName="$projectname$.BackEnd.API">BackEnd\ProjectName.BackEnd.API\ProjectName.BackEnd.API.vstemplate</ProjectTemplateLink>
-      <ProjectTemplateLink ProjectName="$projectname$.BackEnd.Data">BackEnd\ProjectName.BackEnd.Data\ProjectName.BackEnd.Data.vstemplate</ProjectTemplateLink>
-      <ProjectTemplateLink ProjectName="$projectname$.BackEnd.ServiceDependencies">BackEnd\ProjectName.BackEnd.ServiceDependencies\ProjectName.BackEnd.ServiceDependencies.vstemplate</ProjectTemplateLink>
-      <ProjectTemplateLink ProjectName="$projectname$.BackEnd.Services">BackEnd\ProjectName.BackEnd.Services\ProjectName.BackEnd.Services.vstemplate</ProjectTemplateLink>
-      <ProjectTemplateLink ProjectName="$projectname$.BackEnd.UnitTests">BackEnd\ProjectName.BackEnd.UnitTests\ProjectName.BackEnd.UnitTests.vstemplate</ProjectTemplateLink>
-      <ProjectTemplateLink ProjectName="$projectname$.Shared.Dto">Shared\ProjectName.Shared.Dto\ProjectName.Shared.Dto.vstemplate</ProjectTemplateLink>
+      <SolutionFolder Name="BackEnd">
+        <ProjectTemplateLink ProjectName="$projectname$.BackEnd.API">BackEnd\ProjectName.BackEnd.API\ProjectName.BackEnd.API.vstemplate</ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$projectname$.BackEnd.Data">BackEnd\ProjectName.BackEnd.Data\ProjectName.BackEnd.Data.vstemplate</ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$projectname$.BackEnd.ServiceDependencies">BackEnd\ProjectName.BackEnd.ServiceDependencies\ProjectName.BackEnd.ServiceDependencies.vstemplate</ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$projectname$.BackEnd.Services">BackEnd\ProjectName.BackEnd.Services\ProjectName.BackEnd.Services.vstemplate</ProjectTemplateLink>
+        <ProjectTemplateLink ProjectName="$projectname$.BackEnd.UnitTests">BackEnd\ProjectName.BackEnd.UnitTests\ProjectName.BackEnd.UnitTests.vstemplate</ProjectTemplateLink>
+      </SolutionFolder>
+      <SolutionFolder Name="Shared">
+        <ProjectTemplateLink ProjectName="$projectname$.Shared.Dto">Shared\ProjectName.Shared.Dto\ProjectName.Shared.Dto.vstemplate</ProjectTemplateLink>
+      </SolutionFolder>
     </ProjectCollection>
   </TemplateContent>
 </VSTemplate>

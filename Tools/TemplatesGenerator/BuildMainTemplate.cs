@@ -29,17 +29,40 @@ namespace ProjectName.ToolTrigger.TemplatesGenerator
 
             List<VSTemplateTemplateContentProjectCollectionProjectTemplateLink> templates = new List<VSTemplateTemplateContentProjectCollectionProjectTemplateLink>();
             //TODO:fix this to loop subfolders properly
-            foreach(var folder in folderStructure.SelectMany(a=>a.Project))
+            List<VSTemplateTemplateContentProjectCollectionSolutionFolder> folders = new List<VSTemplateTemplateContentProjectCollectionSolutionFolder>();
+            foreach(var folder in folderStructure)//.SelectMany(a=>a.Project)
             {
-                VSTemplateTemplateContentProjectCollectionProjectTemplateLink template = new VSTemplateTemplateContentProjectCollectionProjectTemplateLink()
+
+                VSTemplateTemplateContentProjectCollectionSolutionFolder solutionFolder =new VSTemplateTemplateContentProjectCollectionSolutionFolder();
+                solutionFolder.Name = folder.SolutionFolder;
+                List<VSTemplateTemplateContentProjectCollectionSolutionFolderProjectTemplateLink> templateProjecs = 
+                 new List<VSTemplateTemplateContentProjectCollectionSolutionFolderProjectTemplateLink>();
+
+
+                foreach(var subProject in folder.Project)
                 {
-                    ProjectName = folder.ProjectName.Replace("ProjectName", "$projectname$"),
-                    Value = folder.ProjectTemplateFile.Replace($"{baseDirectory}\\", "")
-                };
-                templates.Add(template);
+                    VSTemplateTemplateContentProjectCollectionSolutionFolderProjectTemplateLink sb = new VSTemplateTemplateContentProjectCollectionSolutionFolderProjectTemplateLink()
+                    {
+                        ProjectName = subProject.ProjectName.Replace("ProjectName", "$projectname$"),
+                        Value = subProject.ProjectTemplateFile.Replace($"{baseDirectory}\\", "")
+                    };
+                    templateProjecs.Add(sb);
+                }
+
+                solutionFolder.ProjectTemplateLink = templateProjecs.ToArray();
+
+                //VSTemplateTemplateContentProjectCollectionProjectTemplateLink template = new VSTemplateTemplateContentProjectCollectionProjectTemplateLink()
+                //{
+                //    ProjectName = folder.ProjectName.Replace("ProjectName", "$projectname$"),
+                //    Value = folder.ProjectTemplateFile.Replace($"{baseDirectory}\\", "")
+                //};
+                //templates.Add(template);
+                folders.Add(solutionFolder);
             }
 
-            project.ProjectTemplateLink = templates.ToArray(); 
+            project.ProjectTemplateLink = templates.ToArray();
+
+            project.SolutionFolder = folders.ToArray();
 
             projects.Add(project);
             vsTemplate.TemplateContent.ProjectCollection = projects.ToArray();
