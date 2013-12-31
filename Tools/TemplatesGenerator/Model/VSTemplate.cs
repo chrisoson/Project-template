@@ -403,7 +403,7 @@ namespace ProjectName.ToolTrigger.TemplatesGenerator.Model
     public partial class VSTemplateTemplateContentProjectFolder
     {
 
-        private VSTemplateTemplateContentProjectFolderFolder folderField;
+        private VSTemplateTemplateContentProjectFolder[] folderField;
 
         private VSTemplateTemplateContentProjectFolderProjectItem[] projectItemField;
 
@@ -412,7 +412,8 @@ namespace ProjectName.ToolTrigger.TemplatesGenerator.Model
         private string targetFolderNameField;
 
         /// <remarks/>
-        public VSTemplateTemplateContentProjectFolderFolder Folder
+        [System.Xml.Serialization.XmlElementAttribute("Folder")]
+        public VSTemplateTemplateContentProjectFolder[] Folder
         {
             get
             {
@@ -425,6 +426,7 @@ namespace ProjectName.ToolTrigger.TemplatesGenerator.Model
         }
 
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("ProjectItem")]
         public VSTemplateTemplateContentProjectFolderProjectItem[] ProjectItem
         {
             get

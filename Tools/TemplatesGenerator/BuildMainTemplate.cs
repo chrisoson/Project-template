@@ -10,7 +10,7 @@ namespace ProjectName.ToolTrigger.TemplatesGenerator
     public static class BuildMainTemplate
     {
 
-        public static void Execute(string baseDirectory, List<FolderStructure> folderStructure)
+        public static void Execute(string baseDirectory, List<ProjectStructure> folderStructure)
         {
 
             //HERE DO THE MAIN vstemplate
@@ -29,7 +29,7 @@ namespace ProjectName.ToolTrigger.TemplatesGenerator
 
             List<VSTemplateTemplateContentProjectCollectionProjectTemplateLink> templates = new List<VSTemplateTemplateContentProjectCollectionProjectTemplateLink>();
             //TODO:fix this to loop subfolders properly
-            foreach(var folder in folderStructure.SelectMany(a=>a.Folders))
+            foreach(var folder in folderStructure.SelectMany(a=>a.Project))
             {
                 VSTemplateTemplateContentProjectCollectionProjectTemplateLink template = new VSTemplateTemplateContentProjectCollectionProjectTemplateLink()
                 {

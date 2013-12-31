@@ -26,10 +26,10 @@ namespace ProjectName.ToolTrigger.TemplatesGenerator
             Console.WriteLine("Lets generate the Template!");
             Console.WriteLine($"Loop Directories in {_baseDirectory}");
             string[] subDirectories = Directory.GetDirectories(_baseDirectory);
-            List<FolderStructure> folderStructure = new List<FolderStructure>();
+            List<ProjectStructure> folderStructure = new List<ProjectStructure>();
             foreach (string directory in subDirectories.Where(a => DirectoryExtensions.IsValidDirectory(a)))
             {
-                FolderStructure folder = new FolderStructure()
+                ProjectStructure folder = new ProjectStructure()
                 {
                     SolutionFolder = directory.Split('\\').Last()
                 };
@@ -40,7 +40,7 @@ namespace ProjectName.ToolTrigger.TemplatesGenerator
             BuildMainTemplate.Execute(_baseDirectory, folderStructure);
         }
 
-        private void LoopProjectSubDirectory(string directory, FolderStructure folder)
+        private void LoopProjectSubDirectory(string directory, ProjectStructure folder)
         {
             Console.WriteLine($"Loop {directory}");
             string[] subSubDirectories = Directory.GetDirectories(directory);
@@ -52,7 +52,7 @@ namespace ProjectName.ToolTrigger.TemplatesGenerator
             }
 
         }
-        private void LoopDirectory(string directory, FolderStructure folder)
+        private void LoopDirectory(string directory, ProjectStructure folder)
         {
             Console.WriteLine($"Loop {directory}");
             if (DirectoryExtensions.IsProject(directory))

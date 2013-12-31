@@ -9,7 +9,7 @@ namespace ProjectName.ToolTrigger.TemplatesGenerator
 {
     static class BuildProjectTemplate
     {
-        public static void LoopProjectDirectory(string directory, FolderStructure folder)
+        public static void LoopProjectDirectory(string directory, ProjectStructure folder)
         {
             string projectName = directory.Split('\\').Last();
 
@@ -34,14 +34,55 @@ namespace ProjectName.ToolTrigger.TemplatesGenerator
             string xml = vsTemplate.ToXml();
             string templateFile = $"{directory}\\{projectName}.vstemplate";
             File.WriteAllText(templateFile, xml);
-            FolderStructure subFolder = new FolderStructure()
+            ProjectStructure subFolder = new ProjectStructure()
             {
                 ProjectName = projectName,
                 ProjectTemplateFile = templateFile
             };
-            folder.Folders.Add(subFolder);
+            folder.Project.Add(subFolder);
         }
 
+
+        private static void LoopFolder(string currentDirectory, VSTemplateTemplateContentProjectFolder parentFolder)
+        {
+
+            string folderName = currentDirectory.Split('\\').Last();
+            parentFolder.Name = folderName;
+            parentFolder.TargetFolderName = folderName;
+
+            string[] subDirectories = Directory.GetDirectories(currentDirectory)
+                .Where(a => DirectoryExtensions.IsValidDirectory(a)).ToArray();
+
+
+            if (subDirectories.Length != 0)
+            {
+                var folderStructure = parentFolder?.Folder?.ToList() ?? new List<VSTemplateTemplateContentProjectFolder>();
+                
+
+                foreach (string subDirectory in subDirectories)
+                {
+                    VSTemplateTemplateContentProjectFolder currentFolder = new VSTemplateTemplateContentProjectFolder();
+                    LoopFolder(subDirectory, currentFolder);
+                    folderStructure.Add(currentFolder);
+                }
+                parentFolder.Folder = folderStructure.ToArray();
+            }
+
+            List<VSTemplateTemplateContentProjectFolderProjectItem> items = new List<VSTemplateTemplateContentProjectFolderProjectItem>();
+
+            foreach (var item in Directory.GetFiles(currentDirectory))
+            {
+                VSTemplateTemplateContentProjectFolderProjectItem projectItem = new VSTemplateTemplateContentProjectFolderProjectItem();
+                projectItem.ReplaceParameters = true;
+                string itemName = item.Split('\\').Last();
+                projectItem.TargetFileName = itemName;
+                projectItem.Value = itemName;
+                items.Add(projectItem);
+            }
+
+            parentFolder.ProjectItem = items.ToArray();
+            
+        }
 
         private static void ProjectContent(VSTemplate vsTemplate, string currentDirectory)
         {
@@ -57,28 +98,13 @@ namespace ProjectName.ToolTrigger.TemplatesGenerator
 
             foreach (var d in subSubDirectories.Where(a => DirectoryExtensions.IsValidDirectory(a)))
             {
-                string[] projectPath = d.Split('\\');
-                string folderName = projectPath[projectPath.Length - 1];
+                string folderName = d.Split('\\').Last();
                 VSTemplateTemplateContentProjectFolder folder = new VSTemplateTemplateContentProjectFolder();
-                folder.Name = folderName;
-                folder.TargetFolderName = folderName;
-
+               
                 //LoopItems
-                List<VSTemplateTemplateContentProjectFolderProjectItem> items = new List<VSTemplateTemplateContentProjectFolderProjectItem>();
+                LoopFolder(d, folder);
 
-                foreach (var item in Directory.GetFiles(d))
-                {
-                    VSTemplateTemplateContentProjectFolderProjectItem projectItem = new VSTemplateTemplateContentProjectFolderProjectItem();
-                    projectItem.ReplaceParameters = true;
-                    string[] itempPath = item.Split('\\');
-                    string itemName = itempPath[itempPath.Length - 1];
-                    projectItem.TargetFileName = itemName;
-                    projectItem.Value = itemName;
-                    items.Add(projectItem);
-                }
-                folder.ProjectItem = items.ToArray();
                 folders.Add(folder);
-                //TODO: this should loop the folders too.
 
             }
             project.Folder = folders.ToArray();
@@ -92,7 +118,7 @@ namespace ProjectName.ToolTrigger.TemplatesGenerator
                 VSTemplateTemplateContentProjectProjectItem projectItem = new VSTemplateTemplateContentProjectProjectItem();
                 projectItem.ReplaceParameters = true;
                 string[] itempPath = item.Split('\\');
-                string itemName = itempPath[itempPath.Length - 1];
+                string itemName = item.Split('\\').Last();
                 projectItem.TargetFileName = itemName;
                 projectItem.Value = itemName;
                 projectItems.Add(projectItem);

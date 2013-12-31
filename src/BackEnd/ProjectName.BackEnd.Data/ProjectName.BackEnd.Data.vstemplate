@@ -12,14 +12,10 @@
   <TemplateContent>
     <Project TargetFileName="ProjectName.BackEnd.Data.csproj" File="ProjectName.BackEnd.Data.csproj" ReplaceParameters="true">
       <Folder Name="Database" TargetFolderName="Database">
-        <ProjectItem>
-          <VSTemplateTemplateContentProjectFolderProjectItem ReplaceParameters="true" TargetFileName="DatabaseContext.cs">DatabaseContext.cs</VSTemplateTemplateContentProjectFolderProjectItem>
-        </ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="DatabaseContext.cs">DatabaseContext.cs</ProjectItem>
       </Folder>
       <Folder Name="Entiteis" TargetFolderName="Entiteis">
-        <ProjectItem>
-          <VSTemplateTemplateContentProjectFolderProjectItem ReplaceParameters="true" TargetFileName="Product.cs">Product.cs</VSTemplateTemplateContentProjectFolderProjectItem>
-        </ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Product.cs">Product.cs</ProjectItem>
       </Folder>
       <ProjectItem ReplaceParameters="true" TargetFileName="DatabaseCredentials.cs">DatabaseCredentials.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="DataDependencyInjection.cs">DataDependencyInjection.cs</ProjectItem>

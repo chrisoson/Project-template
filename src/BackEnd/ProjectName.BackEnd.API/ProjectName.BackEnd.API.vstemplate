@@ -12,19 +12,13 @@
   <TemplateContent>
     <Project TargetFileName="ProjectName.BackEnd.API.csproj" File="ProjectName.BackEnd.API.csproj" ReplaceParameters="true">
       <Folder Name="Controllers" TargetFolderName="Controllers">
-        <ProjectItem>
-          <VSTemplateTemplateContentProjectFolderProjectItem ReplaceParameters="true" TargetFileName="ProductController.cs">ProductController.cs</VSTemplateTemplateContentProjectFolderProjectItem>
-        </ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ProductController.cs">ProductController.cs</ProjectItem>
       </Folder>
       <Folder Name="Mappers" TargetFolderName="Mappers">
-        <ProjectItem>
-          <VSTemplateTemplateContentProjectFolderProjectItem ReplaceParameters="true" TargetFileName="ProductMapper.cs">ProductMapper.cs</VSTemplateTemplateContentProjectFolderProjectItem>
-        </ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="ProductMapper.cs">ProductMapper.cs</ProjectItem>
       </Folder>
       <Folder Name="Properties" TargetFolderName="Properties">
-        <ProjectItem>
-          <VSTemplateTemplateContentProjectFolderProjectItem ReplaceParameters="true" TargetFileName="launchSettings.json">launchSettings.json</VSTemplateTemplateContentProjectFolderProjectItem>
-        </ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="launchSettings.json">launchSettings.json</ProjectItem>
       </Folder>
       <ProjectItem ReplaceParameters="true" TargetFileName="ApiDependencyInjection.cs">ApiDependencyInjection.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" TargetFileName="appsettings.Development.json">appsettings.Development.json</ProjectItem>

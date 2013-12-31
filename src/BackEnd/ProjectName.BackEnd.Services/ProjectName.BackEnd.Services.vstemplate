@@ -12,9 +12,7 @@
   <TemplateContent>
     <Project TargetFileName="ProjectName.BackEnd.Services.csproj" File="ProjectName.BackEnd.Services.csproj" ReplaceParameters="true">
       <Folder Name="Products" TargetFolderName="Products">
-        <ProjectItem>
-          <VSTemplateTemplateContentProjectFolderProjectItem ReplaceParameters="true" TargetFileName="GetProductService.cs">GetProductService.cs</VSTemplateTemplateContentProjectFolderProjectItem>
-        </ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="GetProductService.cs">GetProductService.cs</ProjectItem>
       </Folder>
       <ProjectItem ReplaceParameters="true" TargetFileName="ServicesDependencyInjection.cs">ServicesDependencyInjection.cs</ProjectItem>
     </Project>

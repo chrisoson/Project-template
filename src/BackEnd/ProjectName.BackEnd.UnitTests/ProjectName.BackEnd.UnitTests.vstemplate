@@ -12,10 +12,15 @@
   <TemplateContent>
     <Project TargetFileName="ProjectName.BackEnd.UnitTests.csproj" File="ProjectName.BackEnd.UnitTests.csproj" ReplaceParameters="true">
       <Folder Name="API" TargetFolderName="API">
-        <ProjectItem />
+        <Folder Name="Mappers" TargetFolderName="Mappers">
+          <ProjectItem ReplaceParameters="true" TargetFileName="TestProductMapper.cs">TestProductMapper.cs</ProjectItem>
+        </Folder>
       </Folder>
       <Folder Name="Services" TargetFolderName="Services">
-        <ProjectItem />
+        <Folder Name="Products" TargetFolderName="Products">
+          <ProjectItem ReplaceParameters="true" TargetFileName="test.cs">test.cs</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="TestGetProductService.cs">TestGetProductService.cs</ProjectItem>
+        </Folder>
       </Folder>
     </Project>
   </TemplateContent>
