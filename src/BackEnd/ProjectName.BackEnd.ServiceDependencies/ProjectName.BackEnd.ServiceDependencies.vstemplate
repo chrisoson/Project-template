@@ -1,0 +1,22 @@
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>ProjectName.BackEnd.ServiceDependencies</Name>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="ProjectName.BackEnd.ServiceDependencies.csproj" File="ProjectName.BackEnd.ServiceDependencies.csproj" ReplaceParameters="true">
+      <Folder Name="Products" TargetFolderName="Products">
+        <ProjectItem>
+          <VSTemplateTemplateContentProjectFolderProjectItem ReplaceParameters="true" TargetFileName="GetProductServiceDependencies.cs">GetProductServiceDependencies.cs</VSTemplateTemplateContentProjectFolderProjectItem>
+        </ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ServiceDependenciesDependencyInjection.cs">ServiceDependenciesDependencyInjection.cs</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

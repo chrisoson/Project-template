@@ -1,0 +1,23 @@
+<VSTemplate Version="3.0.0" Type="ProjectGroup" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>BackEnd Project</Name>
+    <Description>BackEnd Project</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>0</SortOrder>
+    <CreateNewFolder>false</CreateNewFolder>
+    <ProvideDefaultName>false</ProvideDefaultName>
+    <EnableLocationBrowseButton>false</EnableLocationBrowseButton>
+    <CreateInPlace>false</CreateInPlace>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectCollection>
+      <ProjectTemplateLink ProjectName="ProjectName.BackEnd.API">BackEnd\ProjectName.BackEnd.API\ProjectName.BackEnd.API.vstemplate</ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="ProjectName.BackEnd.Data">BackEnd\ProjectName.BackEnd.Data\ProjectName.BackEnd.Data.vstemplate</ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="ProjectName.BackEnd.ServiceDependencies">BackEnd\ProjectName.BackEnd.ServiceDependencies\ProjectName.BackEnd.ServiceDependencies.vstemplate</ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="ProjectName.BackEnd.Services">BackEnd\ProjectName.BackEnd.Services\ProjectName.BackEnd.Services.vstemplate</ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="ProjectName.BackEnd.UnitTests">BackEnd\ProjectName.BackEnd.UnitTests\ProjectName.BackEnd.UnitTests.vstemplate</ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="ProjectName.Shared.Dto">Shared\ProjectName.Shared.Dto\ProjectName.Shared.Dto.vstemplate</ProjectTemplateLink>
+    </ProjectCollection>
+  </TemplateContent>
+</VSTemplate>
