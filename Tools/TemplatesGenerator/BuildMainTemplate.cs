@@ -22,7 +22,7 @@ namespace ProjectName.ToolTrigger.TemplatesGenerator
             vsTemplate.TemplateData.Name = "BackEnd Project"; //TODO: Change Name
             vsTemplate.TemplateData.ProjectType = "CSharp";
             vsTemplate.TemplateData.Description = "BackEnd Project"; // TODO: change
-            vsTemplate.TemplateData.Icon = "__TemplateIcon.ico";// TODO: change
+            vsTemplate.TemplateData.Icon = "templateIcon.png";
             vsTemplate.TemplateContent = new VSTemplateTemplateContent();
             List<VSTemplateTemplateContentProjectCollection> projects = new List<VSTemplateTemplateContentProjectCollection>();
             VSTemplateTemplateContentProjectCollection project = new VSTemplateTemplateContentProjectCollection();
@@ -33,7 +33,7 @@ namespace ProjectName.ToolTrigger.TemplatesGenerator
             {
                 VSTemplateTemplateContentProjectCollectionProjectTemplateLink template = new VSTemplateTemplateContentProjectCollectionProjectTemplateLink()
                 {
-                    ProjectName = folder.ProjectName,
+                    ProjectName = folder.ProjectName.Replace("ProjectName", "$projectname$"),
                     Value = folder.ProjectTemplateFile.Replace($"{baseDirectory}\\", "")
                 };
                 templates.Add(template);
