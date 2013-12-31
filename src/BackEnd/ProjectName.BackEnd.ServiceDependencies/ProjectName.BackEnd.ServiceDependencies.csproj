@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>ProjectName.BackEnd.ServiceDependencies</RootNamespace>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectName.BackEnd.Data\ProjectName.BackEnd.Data.csproj" />
+    <ProjectReference Include="..\ProjectName.BackEnd.Services\ProjectName.BackEnd.Services.csproj" />
+  </ItemGroup>
+
+</Project>
